@@ -97,7 +97,7 @@ public class FacadeTest {
         String marca = "";
         String modelo = "";
         Facade instance = Facade.crearUnicaInstancia();
-        instance.guardarBicicleta(serial, marca, modelo);
+        instance.guardarBicycle(serial, marca, modelo);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
@@ -169,7 +169,7 @@ public class FacadeTest {
         String codigo = "";
         Facade instance = Facade.crearUnicaInstancia();
         Bicicleta expResult = null;
-        Bicicleta result = instance.buscarBicicleta(codigo);
+        Bicycle result = instance.buscarBicycle(codigo);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
@@ -224,7 +224,7 @@ public class FacadeTest {
         String marca = "";
         String modelo = "";
         Facade instance = Facade.crearUnicaInstancia();
-        instance.modificarBicicleta(oldserial, serial, marca, modelo);
+        instance.modificarBicycle(oldserial, serial, marca, modelo);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }
@@ -263,7 +263,7 @@ public class FacadeTest {
         System.out.println("eliminarBicicleta");
         String serial = "";
         Facade instance = Facade.crearUnicaInstancia();
-        instance.eliminarBicicleta(serial);
+        instance.eliminarBicycle(serial);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
     }

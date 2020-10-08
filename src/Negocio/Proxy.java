@@ -23,7 +23,7 @@ public class Proxy implements InterfaceProxy{
         for (Usuario usu: Proxy.copiaUsu) {
             if(usu.getUsuario().equals(usuario) && usu.getPassword().equals(contrasena)){
                 String y = JOptionPane.showInputDialog(null, "Que metodo desea utilizar");
-                String z = JOptionPane.showInputDialog(null, "Escriba los parametros del metodo separados por ,/n"+
+                String z = JOptionPane.showInputDialog(null, "Escriba los parametros del metodo separados por -/n"+
                                                              "Si el metodo no tiene parametros, dejelo vacio");
                 if(!(z.equals(""))){
                     x = usu.getTipo() + "," + y + "," + z;

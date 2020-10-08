@@ -15,12 +15,7 @@ public abstract class BicycleDecorator implements Bicycle{
     protected Bicycle specialBicycle;
     public BicycleDecorator(Bicycle specialBicycle){
         this.specialBicycle = specialBicycle;
-    }
-    
-    @Override
-    public String showBicycle(){
-        return this.specialBicycle.showBicycle();
-    }
+    }    
 
     public Bicycle getSpecialBicycle() {
         return specialBicycle;
