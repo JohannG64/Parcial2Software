@@ -75,11 +75,6 @@ public class BiciUsuario implements Usuario{
     }
 
     @Override
-    public void mostrarEmp() {
-        
-    }
-
-    @Override
     public void setUsuario(String usuario) {
         this.usuario = usuario;
     }

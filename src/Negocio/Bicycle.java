@@ -13,4 +13,10 @@ package Negocio;
  */
 public interface Bicycle {
     public String showBicycle();
+    public void setSerial(String Serial);
+    public String getSerial();
+    public void setMarca(String Marca);
+    public String getMarca();
+    public void setModelo(String Modelo);
+    public String getModelo();
 }

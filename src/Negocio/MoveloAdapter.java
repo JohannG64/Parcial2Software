@@ -68,11 +68,6 @@ public class MoveloAdapter implements Usuario {
     }
 
     @Override
-    public void mostrarEmp() {
-        System.out.println("No aplica");
-    }
-
-    @Override
     public String getDocumento() {
         System.out.println("No aplica");
         return "";
