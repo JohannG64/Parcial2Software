@@ -166,6 +166,11 @@ public class Facade implements InterfaceProxy{
         Empresa e = (Empresa) this.buscarUsuario(nit);
         e.add((BiciUsuario) this.buscarUsuario(codigo));
     }
+    
+    public void anadirColor(String serial, String color){
+        Bicicleta b = (Bicicleta) this.buscarBicycle(serial);
+        new ColorDecorator(b, color);
+    }
 
     @Override
     public void Login(String usuario, String contrasena) {
@@ -246,6 +251,9 @@ public class Facade implements InterfaceProxy{
             }
             if(x[1].equals("eliminarBicycle")){
                 this.eliminarBicycle(x[2]);
+            }
+            if(x[1].equals("anadirColor")){
+                this.anadirColor(x[2], x[3]);
             }
         }
     }
