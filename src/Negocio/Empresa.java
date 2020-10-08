@@ -87,7 +87,6 @@ public class Empresa  implements Usuario {
         this.empresas.add(empre);
     }
 
-    @Override
     public void mostrarEmp() {
         for (BiciUsuario e: this.empleados) {
             System.out.println(e.toString()+"\n");

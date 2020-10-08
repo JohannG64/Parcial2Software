@@ -17,7 +17,7 @@ public class Proxy implements InterfaceProxy{
     private static ArrayList<Usuario> copiaUsu;
     @Override
     public void Login(String usuario, String contrasena) {
-        Proxy.facInstance = Facade.crearunicaInstancia();
+        Proxy.facInstance = Facade.crearUnicaInstancia();
         Proxy.copiaUsu = Proxy.facInstance.getUsuario();
         String x = "";
         for (Usuario usu: Proxy.copiaUsu) {

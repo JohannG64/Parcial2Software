@@ -18,7 +18,7 @@ public class BiciUsuario implements Usuario{
     private String usuario;
     private String password;
     private String tipo;
-    private ArrayList<Bicicleta> bicicletas = new ArrayList();
+    private ArrayList<Bicycle> bicicletas = new ArrayList();
 
     public BiciUsuario() {
     }
@@ -67,16 +67,11 @@ public class BiciUsuario implements Usuario{
         this.direccion = direccion;
     }
 
-    public ArrayList<Bicicleta> getBicicletas() {
+    public ArrayList<Bicycle> getBicicletas() {
         return bicicletas;
     }
     public void add(Bicicleta bic){
         this.bicicletas.add(bic);
-    }
-
-    @Override
-    public void mostrarEmp() {
-        
     }
 
     @Override
