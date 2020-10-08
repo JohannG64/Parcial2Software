@@ -18,25 +18,6 @@ import static org.junit.Assert.*;
  * @author afpic
  */
 public class FacadeTest {
-    
-    public FacadeTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
-    }
 
     /**
      * Test of crearunicaInstancia method, of class Facade.
@@ -66,7 +47,6 @@ public class FacadeTest {
         instance.guardarEmpresa(nit, nombre, direccion, usuario, password, tipo);
         assertTrue(!(instance.buscarUsuario(nit)).equals(null));
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
     }
 
     /**
@@ -84,7 +64,7 @@ public class FacadeTest {
         Facade instance = Facade.crearUnicaInstancia();
         instance.guardarBiciUsuario(codigo, nombreApellido, direccion, usuario, password, tipo);
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        //
     }
 
     /**
@@ -99,7 +79,7 @@ public class FacadeTest {
         Facade instance = Facade.crearUnicaInstancia();
         instance.guardarBicycle(serial, marca, modelo);
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        //
     }
 
     /**
@@ -108,12 +88,32 @@ public class FacadeTest {
     @Test
     public void testGetUsuario() {
         System.out.println("getUsuario");
+        String nit = "1234567";
+        String nombre = "Bavaria";
+        String direccion = "Calle 86 #84-13";
+        String usuario = "bavaria";
+        String password = "bavaria123";
+        String tipo = "Empresa";
+        
         Facade instance = Facade.crearUnicaInstancia();
-        ArrayList<Usuario> expResult = null;
+        instance.guardarEmpresa(nit, nombre, direccion, usuario, password, tipo);
+        
+        String nit2 = "123";
+        String nombre2 = "avaria";
+        String direccion2 = "Calle 236 #84-13";
+        String usuario2 = "avaria";
+        String password2 = "avaria123";
+        String tipo2 = "Empresa";
+        
+        instance.guardarEmpresa(nit2, nombre2, direccion2, usuario2, password2, tipo2);
+        
+        ArrayList<Usuario> expResult = new ArrayList();
+        expResult.add(instance.buscarUsuario(nit));
+        expResult.add(instance.buscarUsuario(nit2));
         ArrayList<Usuario> result = instance.getUsuario();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        //
     }
 
     /**
@@ -126,7 +126,7 @@ public class FacadeTest {
         Facade instance = Facade.crearUnicaInstancia();
         instance.setUsuario(usuarios);
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        //
     }
 
     /**
@@ -135,13 +135,19 @@ public class FacadeTest {
     @Test
     public void testBuscarUsuario_String() {
         System.out.println("buscarUsuario");
-        String codigo = "";
+        String nit = "1234567";
+        String nombre = "Bavaria";
+        String direccion = "Calle 86 #84-13";
+        String usuario = "bavaria";
+        String password = "bavaria123";
+        String tipo = "Empresa";
+        
         Facade instance = Facade.crearUnicaInstancia();
-        Usuario expResult = null;
-        Usuario result = instance.buscarUsuario(codigo);
-        assertEquals(expResult, result);
+        instance.guardarEmpresa(nit, nombre, direccion, usuario, password, tipo);
+        Usuario result = instance.buscarUsuario(nit);
+        assertTrue(!(result).equals(null));
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        //
     }
 
     /**
@@ -157,7 +163,7 @@ public class FacadeTest {
         Usuario result = instance.buscarUsuario(user, pass);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        //
     }
 
     /**
@@ -172,7 +178,7 @@ public class FacadeTest {
         Bicycle result = instance.buscarBicycle(codigo);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        //
     }
 
     /**
@@ -181,17 +187,18 @@ public class FacadeTest {
     @Test
     public void testModificarEmpresa() {
         System.out.println("modificarEmpresa");
-        String oldnit = "";
-        String nit = "";
-        String nombre = "";
-        String direccion = "";
-        String usuario = "";
-        String password = "";
-        String tipo = "";
+        String oldnit = "1234567";
+        String nombre = "Bavaria";
+        String direccion = "Calle 86 #84-13";
+        String usuario = "bavaria";
+        String password = "bavaria123";
+        String tipo = "Empresa";
         Facade instance = Facade.crearUnicaInstancia();
+        instance.guardarEmpresa(oldnit, nombre, direccion, usuario, password, tipo);
+        String nit = "7654321";
         instance.modificarEmpresa(oldnit, nit, nombre, direccion, usuario, password, tipo);
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        //
     }
 
     /**
@@ -210,7 +217,7 @@ public class FacadeTest {
         Facade instance = Facade.crearUnicaInstancia();
         instance.modificarBiciUsuario(oldcodigo, codigo, nombreApe, direccion, usuario, password, tipo);
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        //
     }
 
     /**
@@ -219,14 +226,15 @@ public class FacadeTest {
     @Test
     public void testModificarBicicleta() {
         System.out.println("modificarBicicleta");
-        String oldserial = "";
-        String serial = "";
-        String marca = "";
-        String modelo = "";
+        String serial = "123";
+        String marca = "marca";
+        String modelo = "modelo";
         Facade instance = Facade.crearUnicaInstancia();
-        instance.modificarBicycle(oldserial, serial, marca, modelo);
+        instance.guardarBicycle(serial, marca, modelo);
+        instance.modificarBicycle(serial, "321", "marca2", "modelo2");
+
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        //
     }
 
     /**
@@ -239,7 +247,7 @@ public class FacadeTest {
         Facade instance = Facade.crearUnicaInstancia();
         instance.eliminarEmpresa(codigo);
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        //
     }
 
     /**
@@ -252,7 +260,7 @@ public class FacadeTest {
         Facade instance = Facade.crearUnicaInstancia();
         instance.eliminarBiciUsuario(codigo);
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        //
     }
 
     /**
@@ -265,7 +273,7 @@ public class FacadeTest {
         Facade instance = Facade.crearUnicaInstancia();
         instance.eliminarBicycle(serial);
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        //
     }
 
     /**
@@ -274,12 +282,25 @@ public class FacadeTest {
     @Test
     public void testAddEmpresa() {
         System.out.println("addEmpresa");
-        String nit = "";
-        String emp = "";
+        String nit = "1234567";
+        String nombre = "Bavaria";
+        String direccion = "Calle 86 #84-13";
+        String usuario = "bavaria";
+        String password = "bavaria123";
+        String tipo = "Empresa";
+        
         Facade instance = Facade.crearUnicaInstancia();
-        instance.addEmpresa(nit, emp);
+        instance.guardarEmpresa(nit, nombre, direccion, usuario, password, tipo);
+        String nit2 = "7654321";
+        String nombre2 = "Movelo";
+        String direccion2 = "Calle 36 #12-75";
+        String usuario2 = "movelo";
+        String password2 = "movelo123";
+        String tipo2 = "Empresa";
+        instance.guardarEmpresa(nit2, nombre2, direccion2, usuario2, password2, tipo2);
+        instance.addEmpresa(nit, nit2);
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        //
     }
 
     /**
@@ -288,28 +309,28 @@ public class FacadeTest {
     @Test
     public void testAddBiciUsuario() {
         System.out.println("addBiciUsuario");
-        String nit = "";
-        String codigo = "";
         Facade instance = Facade.crearUnicaInstancia();
+        String codigo = "123";
+        String nombreApellido = "";
+        String direccion = "";
+        String usuario = "";
+        String password = "";
+        String tipo = "BiciUsuario";
+        
+        String nit = "1234567";
+        String nombre = "Bavaria";
+        String direccionemp = "Calle 86 #84-13";
+        String usuarioemp = "bavaria";
+        String passwordemp = "bavaria123";
+        String tipoemp = "Empresa";
+        instance.guardarEmpresa(nit, nombre, direccionemp, usuarioemp, passwordemp, tipoemp);
+        instance.guardarBiciUsuario(codigo, nombreApellido, direccion, usuario, password, tipo);
         instance.addBiciUsuario(nit, codigo);
+        assertTrue(!(instance.buscarUsuario(codigo)).equals(null));
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        //
     }
 
-    /**
-     * Test of Login method, of class Facade.
-     */
-    @Test
-    public void testLogin() {
-        System.out.println("Login");
-        this.testGuardarEmpresa();
-        String usuario = "";
-        String contrasena = "";
-        Facade instance = Facade.crearUnicaInstancia();
-        instance.Login(usuario, contrasena);
-        // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
-    }
 
     /**
      * Test of ejecutarMetodo method, of class Facade.
@@ -321,7 +342,7 @@ public class FacadeTest {
         Facade instance = Facade.crearUnicaInstancia();
         instance.ejecutarMetodo(object);
         // TODO review the generated test code and remove the default call to fail.
-        //fail("The test case is a prototype.");
+        //
     }
     
 }
