@@ -23,26 +23,32 @@ public class Bicicleta implements Bicycle {
         this.modelo = modelo;
     }
 
+    @Override
     public String getSerial() {
         return serial;
     }
 
+    @Override
     public void setSerial(String serial) {
         this.serial = serial;
     }
 
+    @Override
     public String getMarca() {
         return marca;
     }
 
+    @Override
     public void setMarca(String marca) {
         this.marca = marca;
     }
 
+    @Override
     public String getModelo() {
         return modelo;
     }
 
+    @Override
     public void setModelo(String modelo) {
         this.modelo = modelo;
     }
@@ -56,7 +62,6 @@ public class Bicicleta implements Bicycle {
     public String showBicycle() {
         return this.toString();    
     }
-    
     
     
 }

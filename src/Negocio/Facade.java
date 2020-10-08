@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 public class Facade implements InterfaceProxy{
     private static Facade unica = null;
     private static ArrayList<Usuario> usuarios;
-    private static ArrayList<Bicicleta> bics;
+    private static ArrayList<Bicycle> bics;
     
     public static Facade crearUnicaInstancia(){
         if(Facade.unica == null){
@@ -35,8 +35,8 @@ public class Facade implements InterfaceProxy{
         BiciUsuario a = new BiciUsuario(codigo, nombreApellido, direccion, usuario, password, tipo);
         this.usuarios.add(a);
     }
-    public void guardarBicicleta(String serial, String marca, String modelo){
-        Bicicleta bicu = new Bicicleta(serial, marca, modelo);
+    public void guardarBicycle(String serial, String marca, String modelo){
+        Bicycle bicu = new Bicicleta(serial, marca, modelo);
         this.bics.add(bicu);
         System.out.println("Se guardo" + this.bics);
     }
@@ -73,9 +73,9 @@ public class Facade implements InterfaceProxy{
         return em;
     }
     
-    public Bicicleta buscarBicicleta(String codigo){
-        Bicicleta bi = null;
-        for(Bicicleta bic: this.bics){
+    public Bicycle buscarBicycle(String codigo){
+        Bicycle bi = null;
+        for(Bicycle bic: this.bics){
             if(codigo.equals(bic.getSerial())){
                 bi = bic;
                 break;
@@ -126,8 +126,8 @@ public class Facade implements InterfaceProxy{
         JOptionPane.showMessageDialog(null, "Modificacion exitosa");
     }
     
-    public void modificarBicicleta(String oldserial, String serial, String marca, String modelo){
-        Bicicleta bic = this.buscarBicicleta(oldserial);
+    public void modificarBicycle(String oldserial, String serial, String marca, String modelo){
+        Bicycle bic = this.buscarBicycle(oldserial);
         
         this.bics.remove(bic);
         bic.setSerial(serial);
@@ -148,8 +148,8 @@ public class Facade implements InterfaceProxy{
         this.usuarios.remove(this.buscarUsuario(codigo));
         
     }
-    public void eliminarBicicleta(String serial){
-        for(Bicicleta bc: this.bics){
+    public void eliminarBicycle(String serial){
+        for(Bicycle bc: this.bics){
             if(serial.equals(bc.getSerial())){
                 this.bics.remove(bc);
                 JOptionPane.showMessageDialog(null, "Eliminacion exitosa");
@@ -166,6 +166,11 @@ public class Facade implements InterfaceProxy{
         Empresa e = (Empresa) this.buscarUsuario(nit);
         e.add((BiciUsuario) this.buscarUsuario(codigo));
     }
+    
+    public void anadirColor(String serial, String color){
+        Bicicleta b = (Bicicleta) this.buscarBicycle(serial);
+        new ColorDecorator(b, color);
+    }
 
     @Override
     public void Login(String usuario, String contrasena) {
@@ -176,13 +181,80 @@ public class Facade implements InterfaceProxy{
     public void ejecutarMetodo(String object) {
         String[] x = object.split(",");
         if(x[0].equals("Movelo")){
-            
+            if(x[1].equals("eliminarEmpresa")){
+                this.eliminarEmpresa(x[2]);
+            }
+            if(x[1].equals("eliminarBiciUsuario")){
+                this.eliminarBiciUsuario(x[2]);
+            }
+            if(x[1].equals("eliminarBicycle")){
+                this.eliminarBiciUsuario(x[2]);
+            }
+            if(x[1].equals("verUsuarios")){
+                for (Usuario us: this.getUsuario()) {
+                    System.out.println(us.toString());
+                }
+            }
         }
         if(x[0].equals("Empresa")){
-            
+            if(x[1].equals("guardarEmpresa")){
+                String[] y = x[2].split("-");
+                this.guardarEmpresa(y[0],y[1],y[2],y[3],y[4],x[0]);
+            }
+            if(x[1].equals("modificarEmpresa")){
+                String[] y = x[2].split("-");
+                this.modificarEmpresa(y[0],y[1],y[2],y[3],y[4],y[5],x[0]);
+            }
+            if(x[1].equals("eliminarEmpresa")){
+                this.eliminarEmpresa(x[2]);
+            }
+            if(x[1].equals("buscarEmpresa")){
+                System.out.println(this.buscarUsuario(x[2]).toString());
+            }
+            if(x[1].equals("buscarBiciUsuario")){
+                System.out.println(this.buscarUsuario(x[2]).toString());
+            }
+            if(x[1].equals("addEmpresa")){
+                String[] y = x[2].split("-");
+                this.addEmpresa(y[0], y[1]);
+            }
+            if(x[1].equals("addBiciUsuario")){
+                String[] y = x[2].split("-");
+                this.addBiciUsuario(y[0], y[1]);
+            }
         }
         if(x[0].equals("BiciUsuario")){
-            
+            if(x[1].equals("guardarBiciUsuario")){
+                String[] y = x[2].split("-");
+                this.guardarBiciUsuario(y[0],y[1],y[2],y[3],y[4],x[0]);
+            }
+            if(x[1].equals("modificarBiciUsuario")){
+                String[] y = x[2].split("-");
+                this.modificarBiciUsuario(y[0],y[1],y[2],y[3],y[4],y[5],x[0]);
+            }
+            if(x[1].equals("eliminarBiciUsuario")){
+                this.eliminarBiciUsuario(x[2]);
+            }
+            if(x[1].equals("buscarBiciUsuario")){
+                System.out.println(this.buscarUsuario(x[2]).toString());
+            }
+            if(x[1].equals("crearBicycle")){
+                String[] y = x[2].split("-");
+                this.guardarBicycle(y[0],y[1],y[2]);
+            }
+            if(x[1].equals("verBicycle")){
+                System.out.println(this.buscarBicycle(x[2]).showBicycle());
+            }
+            if(x[1].equals("modificarBicycle")){
+                String[] y = x[2].split("-");
+                this.modificarBicycle(y[0],y[1],y[2],y[3]);
+            }
+            if(x[1].equals("eliminarBicycle")){
+                this.eliminarBicycle(x[2]);
+            }
+            if(x[1].equals("anadirColor")){
+                this.anadirColor(x[2], x[3]);
+            }
         }
     }
     

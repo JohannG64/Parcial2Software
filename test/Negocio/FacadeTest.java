@@ -77,7 +77,7 @@ public class FacadeTest {
         String marca = "";
         String modelo = "";
         Facade instance = Facade.crearUnicaInstancia();
-        instance.guardarBicicleta(serial, marca, modelo);
+        instance.guardarBicycle(serial, marca, modelo);
         // TODO review the generated test code and remove the default call to fail.
         //
     }
@@ -88,8 +88,28 @@ public class FacadeTest {
     @Test
     public void testGetUsuario() {
         System.out.println("getUsuario");
+        String nit = "1234567";
+        String nombre = "Bavaria";
+        String direccion = "Calle 86 #84-13";
+        String usuario = "bavaria";
+        String password = "bavaria123";
+        String tipo = "Empresa";
+        
         Facade instance = Facade.crearUnicaInstancia();
-        ArrayList<Usuario> expResult = null;
+        instance.guardarEmpresa(nit, nombre, direccion, usuario, password, tipo);
+        
+        String nit2 = "123";
+        String nombre2 = "avaria";
+        String direccion2 = "Calle 236 #84-13";
+        String usuario2 = "avaria";
+        String password2 = "avaria123";
+        String tipo2 = "Empresa";
+        
+        instance.guardarEmpresa(nit2, nombre2, direccion2, usuario2, password2, tipo2);
+        
+        ArrayList<Usuario> expResult = new ArrayList();
+        expResult.add(instance.buscarUsuario(nit));
+        expResult.add(instance.buscarUsuario(nit2));
         ArrayList<Usuario> result = instance.getUsuario();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
@@ -115,11 +135,17 @@ public class FacadeTest {
     @Test
     public void testBuscarUsuario_String() {
         System.out.println("buscarUsuario");
-        String codigo = "";
+        String nit = "1234567";
+        String nombre = "Bavaria";
+        String direccion = "Calle 86 #84-13";
+        String usuario = "bavaria";
+        String password = "bavaria123";
+        String tipo = "Empresa";
+        
         Facade instance = Facade.crearUnicaInstancia();
-        Usuario expResult = null;
-        Usuario result = instance.buscarUsuario(codigo);
-        assertEquals(expResult, result);
+        instance.guardarEmpresa(nit, nombre, direccion, usuario, password, tipo);
+        Usuario result = instance.buscarUsuario(nit);
+        assertTrue(!(result).equals(null));
         // TODO review the generated test code and remove the default call to fail.
         //
     }
@@ -149,7 +175,7 @@ public class FacadeTest {
         String codigo = "";
         Facade instance = Facade.crearUnicaInstancia();
         Bicicleta expResult = null;
-        Bicicleta result = instance.buscarBicicleta(codigo);
+        Bicycle result = instance.buscarBicycle(codigo);
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //
@@ -204,8 +230,9 @@ public class FacadeTest {
         String marca = "marca";
         String modelo = "modelo";
         Facade instance = Facade.crearUnicaInstancia();
-        instance.guardarBicicleta(serial, marca, modelo);
-        instance.modificarBicicleta(serial, "321", "marca2", "modelo2");
+        instance.guardarBicycle(serial, marca, modelo);
+        instance.modificarBicycle(serial, "321", "marca2", "modelo2");
+
         // TODO review the generated test code and remove the default call to fail.
         //
     }
@@ -244,7 +271,7 @@ public class FacadeTest {
         System.out.println("eliminarBicicleta");
         String serial = "";
         Facade instance = Facade.crearUnicaInstancia();
-        instance.eliminarBicicleta(serial);
+        instance.eliminarBicycle(serial);
         // TODO review the generated test code and remove the default call to fail.
         //
     }
@@ -288,7 +315,7 @@ public class FacadeTest {
         String direccion = "";
         String usuario = "";
         String password = "";
-        String tipo = "";
+        String tipo = "BiciUsuario";
         
         String nit = "1234567";
         String nombre = "Bavaria";
