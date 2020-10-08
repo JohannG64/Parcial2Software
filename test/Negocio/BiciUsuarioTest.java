@@ -53,6 +53,7 @@ public class BiciUsuarioTest {
         BiciUsuario instance = new BiciUsuario(codigo, nombreApellido, direccion, usuario, password, tipo);
         String nCodigo = "123";
         instance.setDocumento(nCodigo);
+        assertEquals(nCodigo, instance.getDocumento());
         // TODO review the generated test code and remove the default call to fail.
         
     }
@@ -90,6 +91,7 @@ public class BiciUsuarioTest {
         BiciUsuario instance = new BiciUsuario(codigo, nombreApellido, direccion, usuario, password, tipo);
         String nNombre = "Carlos";
         instance.setNombre(nNombre);
+        assertEquals(nNombre, instance.getNombre());
         // TODO review the generated test code and remove the default call to fail.
     }
 
@@ -127,6 +129,7 @@ public class BiciUsuarioTest {
         BiciUsuario instance = new BiciUsuario(codigo, nombreApellido, direccion, usuario, password, tipo);
         String nDireccion = "Cll 25, Cra 14";
         instance.setDireccion(nDireccion);
+        assertEquals(nDireccion, instance.getDireccion());
         // TODO review the generated test code and remove the default call to fail.
         
     }
@@ -175,6 +178,14 @@ public class BiciUsuarioTest {
         String tipo = "";
         BiciUsuario instance = new BiciUsuario(codigo, nombreApellido, direccion, usuario, password, tipo);
         instance.add(bic);
+        ArrayList<Bicycle> bics = instance.getBicicletas();
+        Bicycle bic2 = null;
+        for(Bicycle b: bics){
+            if(b.equals(bic)){
+                bic2 = b;
+            }
+        }
+        assertEquals(bic2,bic);
         // TODO review the generated test code and remove the default call to fail.
         
     }
@@ -194,6 +205,7 @@ public class BiciUsuarioTest {
         BiciUsuario instance = new BiciUsuario(codigo, nombreApellido, direccion, usuario, password, tipo);
         String nUsuario = "Camilo";
         instance.setUsuario(nUsuario);
+        assertEquals(nUsuario, instance.getUsuario());
         // TODO review the generated test code and remove the default call to fail.
         
     }
@@ -232,6 +244,7 @@ public class BiciUsuarioTest {
         BiciUsuario instance = new BiciUsuario(codigo, nombreApellido, direccion, usuario, password, tipo);
         String nPassword = "newpass";
         instance.setPassword(nPassword);
+        assertEquals(nPassword, instance.getPassword());
         // TODO review the generated test code and remove the default call to fail.
         
     }
@@ -287,8 +300,9 @@ public class BiciUsuarioTest {
         String password = "pass";
         String tipo = "";
         BiciUsuario instance = new BiciUsuario(codigo, nombreApellido, direccion, usuario, password, tipo);
-        String nTipo = "Empresa";
-        instance.setTipo(tipo);
+        String nTipo = "BiciUsuario";
+        instance.setTipo(nTipo);
+        assertEquals(nTipo, instance.getTipo());
         // TODO review the generated test code and remove the default call to fail.
         
     }

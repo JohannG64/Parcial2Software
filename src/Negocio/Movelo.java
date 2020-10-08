@@ -18,10 +18,11 @@ public class Movelo {
     public Movelo() {
     }
 
-    public Movelo(String nombre, String administrador, String contrasena) {
+    public Movelo(String nombre, String administrador, String contrasena, String type) {
         this.name = nombre;
         this.administrador = administrador;
         this.contrasena = contrasena;
+        this.type = type;
     }
 
     public String getType() {
@@ -31,6 +32,7 @@ public class Movelo {
     public void setType(String type) {
         this.type = type;
     }
+
 
     public String getName() {
         return this.name;
