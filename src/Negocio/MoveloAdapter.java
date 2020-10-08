@@ -22,7 +22,7 @@ public class MoveloAdapter implements Usuario {
 
     public MoveloAdapter() {
         super();
-        this.mov = new Movelo(this.name, this.usu, this.pas);
+        this.mov = new Movelo(this.name, this.usu, this.pas, this.typ);
     }
 
     @Override
@@ -47,7 +47,7 @@ public class MoveloAdapter implements Usuario {
 
     @Override
     public void setPassword(String password) {
-        this.mov.setContrasena(name);
+        this.mov.setContrasena(password);
     }
 
     @Override
@@ -55,6 +55,16 @@ public class MoveloAdapter implements Usuario {
         return this.mov.getContrasena();
     }
 
+
+    @Override
+    public String getTipo() {
+        return this.mov.getType();
+    }
+
+    @Override
+    public void setTipo(String tipo) {
+        this.mov.setType(tipo);
+    }
 
     @Override
     public String getDireccion() {
@@ -76,16 +86,6 @@ public class MoveloAdapter implements Usuario {
     @Override
     public void setDocumento(String nit) {
         System.out.println("No aplica");
-    }
-
-    @Override
-    public String getTipo() {
-        return this.mov.getType();
-    }
-
-    @Override
-    public void setTipo(String tipo) {
-        this.mov.setType(this.typ);
     }
 
 }
