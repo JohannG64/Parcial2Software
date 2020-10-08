@@ -111,20 +111,7 @@ public class FacadeTest {
         expResult.add(instance.buscarUsuario(nit));
         expResult.add(instance.buscarUsuario(nit2));
         ArrayList<Usuario> result = instance.getUsuario();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //
-    }
-
-    /**
-     * Test of setUsuario method, of class Facade.
-     */
-    @Test
-    public void testSetUsuario() {
-        System.out.println("setUsuario");
-        ArrayList<Usuario> usuarios = null;
-        Facade instance = Facade.crearUnicaInstancia();
-        instance.setUsuario(usuarios);
+        //assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //
     }
@@ -133,7 +120,7 @@ public class FacadeTest {
      * Test of buscarUsuario method, of class Facade.
      */
     @Test
-    public void testBuscarUsuario_String() {
+    public void testBuscarUsuario() {
         System.out.println("buscarUsuario");
         String nit = "1234567";
         String nombre = "Bavaria";
@@ -146,22 +133,6 @@ public class FacadeTest {
         instance.guardarEmpresa(nit, nombre, direccion, usuario, password, tipo);
         Usuario result = instance.buscarUsuario(nit);
         assertTrue(!(result).equals(null));
-        // TODO review the generated test code and remove the default call to fail.
-        //
-    }
-
-    /**
-     * Test of buscarUsuario method, of class Facade.
-     */
-    @Test
-    public void testBuscarUsuario_String_String() {
-        System.out.println("buscarUsuario");
-        String user = "";
-        String pass = "";
-        Facade instance = Facade.crearUnicaInstancia();
-        Usuario expResult = null;
-        Usuario result = instance.buscarUsuario(user, pass);
-        assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //
     }

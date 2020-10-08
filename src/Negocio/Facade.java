@@ -43,10 +43,6 @@ public class Facade implements InterfaceProxy{
     public ArrayList<Usuario> getUsuario() {
         return usuarios;
     }
-
-    public void setUsuario(ArrayList<Usuario> usuarios) {
-        this.usuarios = usuarios;
-    }
     
     public Usuario buscarUsuario(String codigo){
         Usuario em = null;
