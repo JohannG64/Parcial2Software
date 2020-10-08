@@ -125,7 +125,7 @@ public class BiciUsuarioTest {
         String tipo = "";
         BiciUsuario instance = new BiciUsuario(codigo, nombreApellido, direccion, usuario, password, tipo);
         String nDireccion = "Cll 25, Cra 14";
-        instance.setDireccion(direccion);
+        instance.setDireccion(nDireccion);
         // TODO review the generated test code and remove the default call to fail.
         
     }
@@ -148,9 +148,9 @@ public class BiciUsuarioTest {
         String modelo = "";
         Bicicleta bic = new Bicicleta(serial, marca, modelo);
         instance.add(bic);
-        ArrayList<Bicicleta> expResult = new ArrayList();
+        ArrayList<Bicycle> expResult = new ArrayList();
         expResult.add(bic);
-        ArrayList<Bicicleta> result = instance.getBicicletas();
+        ArrayList<Bicycle> result = instance.getBicicletas();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         
