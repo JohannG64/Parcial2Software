@@ -13,8 +13,6 @@ import java.util.ArrayList;
  */
 public interface Usuario {
 
-    public void mostrarEmp();
-
     public String getDocumento();
 
     public void setDocumento(String nit);

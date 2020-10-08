@@ -17,7 +17,7 @@ public class Facade implements InterfaceProxy{
     private static ArrayList<Usuario> usuarios;
     private static ArrayList<Bicicleta> bics;
     
-    public static Facade crearunicaInstancia(){
+    public static Facade crearUnicaInstancia(){
         if(Facade.unica == null){
             Facade.unica = new Facade();
             Facade.usuarios = new ArrayList();
