@@ -55,11 +55,11 @@ public class FacadeTest {
     @Test
     public void testGuardarBiciUsuario() {
         System.out.println("guardarBiciUsuario");
-        String codigo = "1234";
-        String nombreApellido = "Carlos Martinez";
-        String direccion = "calle 11";
-        String usuario = "carMa";
-        String password = "789";
+        String codigo = "823748423";
+        String nombreApellido = "Carlos";
+        String direccion = "Calle 34 #53-24";
+        String usuario = "Carlos";
+        String password = "123";
         String tipo = "BiciUsuario";
         Facade instance = Facade.crearUnicaInstancia();
         instance.guardarBiciUsuario(codigo, nombreApellido, direccion, usuario, password, tipo);
@@ -115,15 +115,17 @@ public class FacadeTest {
         expResult.add(instance.buscarUsuario(nit));
         expResult.add(instance.buscarUsuario(nit2));
         ArrayList<Usuario> result = instance.getUsuario();
+
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //
     }
+
     /**
      * Test of buscarUsuario method, of class Facade.
      */
     @Test
-    public void testBuscarUsuario_String() {
+    public void testBuscarUsuario() {
         System.out.println("buscarUsuario");
         String nit = "1234567";
         String nombre = "Bavaria";
@@ -141,22 +143,6 @@ public class FacadeTest {
     }
 
     /**
-     * Test of buscarUsuario method, of class Facade.
-     */
-    @Test
-    public void testBuscarUsuario_String_String() {
-        System.out.println("buscarUsuario");
-        String user = "";
-        String pass = "";
-        Facade instance = Facade.crearUnicaInstancia();
-        Usuario expResult = null;
-        Usuario result = instance.buscarUsuario(user, pass);
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        //
-    }
-
-    /**
      * Test of buscarBicicleta method, of class Facade.
      */
     @Test
@@ -167,7 +153,6 @@ public class FacadeTest {
         String modelo = "2020";
         Facade instance = Facade.crearUnicaInstancia();
         instance.guardarBicycle(serial, marca, modelo);
-        instance.eliminarBicycle(serial);
         assertTrue((instance.buscarBicycle(serial))!=(null));
     }
 
@@ -187,7 +172,7 @@ public class FacadeTest {
         instance.guardarEmpresa(oldnit, nombre, direccion, usuario, password, tipo);
         String nit = "7654321";
         instance.modificarEmpresa(oldnit, nit, nombre, direccion, usuario, password, tipo);
-        assertTrue(instance.buscarUsuario(nit)!=(null));
+        assertTrue(instance.buscarUsuario(nit).getDocumento() == nit);
         // TODO review the generated test code and remove the default call to fail.
         //
     }
@@ -198,16 +183,17 @@ public class FacadeTest {
     @Test
     public void testModificarBiciUsuario() {
         System.out.println("modificarBiciUsuario");
-        String oldcodigo = "1234";
-        String codigo = "4321";
-        String nombreApe = "Carlos Martinez";
-        String direccion = "calle 12";
-        String usuario = "carMa";
+        String codigo = "1234567";
+        String oldcodigo = "823748423";
+        String nombreApellido = "Carlos";
+        String direccion = "Calle 34 #53-24";
+        String usuario = "Carlos";
         String password = "123";
         String tipo = "BiciUsuario";
         Facade instance = Facade.crearUnicaInstancia();
-        instance.modificarBiciUsuario(oldcodigo, codigo, nombreApe, direccion, usuario, password, tipo);
-        assertTrue(!(instance.buscarUsuario(codigo) == (null)));
+        instance.guardarBiciUsuario(oldcodigo, nombreApellido, direccion, usuario, password, tipo);
+        instance.modificarBiciUsuario(oldcodigo, codigo, nombreApellido, direccion, usuario, password, tipo);
+        assertTrue(instance.buscarUsuario(codigo).getDocumento() == codigo);
         // TODO review the generated test code and remove the default call to fail.
         //
     }
@@ -218,13 +204,14 @@ public class FacadeTest {
     @Test
     public void testModificarBicicleta() {
         System.out.println("modificarBicicleta");
-        String serial = "123";
+        String serial = "321";
+        String oldserial = "123";
         String marca = "marca";
         String modelo = "modelo";
         Facade instance = Facade.crearUnicaInstancia();
-        instance.guardarBicycle(serial, marca, modelo);
-        instance.modificarBicycle(serial, "321", "marca2", "modelo2");
-        assertTrue(instance.buscarBicycle("321") != (null));
+        instance.guardarBicycle(oldserial, marca, modelo);
+        instance.modificarBicycle(oldserial, serial, "marca2", "modelo2");
+        assertTrue(instance.buscarBicycle(serial).getSerial() == serial);
         // TODO review the generated test code and remove the default call to fail.
         //
     }
@@ -255,10 +242,10 @@ public class FacadeTest {
     @Test
     public void testEliminarBiciUsuario() {
          System.out.println("modificarBiciUsuario");
-        String codigo = "83758735";
-        String nombreApe = "Carlos Martinez";
-        String direccion = "calle 12";
-        String usuario = "carMa";
+        String codigo = "823748423";
+        String nombreApe = "Carlos";
+        String direccion = "Calle 34 #53-24";
+        String usuario = "Carlos";
         String password = "123";
         String tipo = "BiciUsuario";
         Facade instance = Facade.crearUnicaInstancia();
@@ -281,7 +268,6 @@ public class FacadeTest {
         Facade instance = Facade.crearUnicaInstancia();
         instance.guardarBicycle(serial, marca, modelo);
         instance.eliminarBicycle(serial);
-        System.out.println("es aqui");
         System.out.println((instance.buscarBicycle(serial)));
         assertTrue((instance.buscarBicycle(serial)) == (null));
         
@@ -334,10 +320,10 @@ public class FacadeTest {
         System.out.println("addBiciUsuario");
         Facade instance = Facade.crearUnicaInstancia();
         String codigo = "823748423";
-        String nombreApellido = "";
-        String direccion = "";
-        String usuario = "";
-        String password = "";
+        String nombreApellido = "Carlos";
+        String direccion = "Calle 34 #53-24";
+        String usuario = "carlos";
+        String password = "123";
         String tipo = "BiciUsuario";
         
         String nit = "9832948";
@@ -370,7 +356,7 @@ public class FacadeTest {
     @Test
     public void testEjecutarMetodo() {
         System.out.println("ejecutarMetodo");
-        String object = "";
+        String object = "Movelo,verUsuarios";
         Facade instance = Facade.crearUnicaInstancia();
         instance.ejecutarMetodo(object);
         // TODO review the generated test code and remove the default call to fail.
