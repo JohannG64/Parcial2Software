@@ -181,8 +181,8 @@ public class Facade implements InterfaceProxy{
         Bicicleta b = (Bicicleta) this.buscarBicycle(serial);
         for (Bicycle x: Facade.bics) {
             if(x.equals(b)){
-                Facade.bics.remove(b);
-                Facade.bics.add(new ColorDecorator(b, color));
+                Facade.bics.remove(x);
+                Facade.bics.add(new ColorDecorator(x, color));
             }
         }
     }

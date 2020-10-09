@@ -362,5 +362,18 @@ public class FacadeTest {
         // TODO review the generated test code and remove the default call to fail.
         //
     }
-    
+    @Test
+    public void testAnadirColor() {
+        String serial = "19284";
+        String marca = "GW";
+        String modelo = "2020";
+        String color = "rojo";
+        Facade instance = Facade.crearUnicaInstancia();
+        instance.guardarBicycle(serial, marca, modelo);
+        instance.anadirColor(serial, color);
+        String[] x=instance.buscarBicycle(serial).showBicycle().split(",");
+        assertEquals(x[3], color);
+        // TODO review the generated test code and remove the default call to fail.
+        
+    }
 }

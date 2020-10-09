@@ -24,7 +24,7 @@ public class ColorDecorator extends BicycleDecorator{
     }
 
     private String addColors() {
-        return "+ " + this.color;
+        return "," + this.color;
     }
 
     @Override
