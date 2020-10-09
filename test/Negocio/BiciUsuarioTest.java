@@ -26,12 +26,12 @@ public class BiciUsuarioTest {
     @Test
     public void testGetDocumento() {
         System.out.println("getDocumento");
-        String codigo = "";
-        String nombreApellido = "";
-        String direccion = "";
-        String usuario = "";
-        String password = "";
-        String tipo = "";
+        String codigo = "13457";
+        String nombreApellido = "Pepe";
+        String direccion = "Cll 80, Cra 57";
+        String usuario = "miguel";
+        String password = "98912";
+        String tipo = "BiciUsuario";
         BiciUsuario instance = new BiciUsuario(codigo, nombreApellido, direccion, usuario, password, tipo);
         String result = instance.getDocumento();
         assertEquals(codigo, result);
@@ -45,11 +45,11 @@ public class BiciUsuarioTest {
     public void testSetDocumento() {
         System.out.println("setDocumento");
         String codigo = "13457";
-        String nombreApellido = "";
-        String direccion = "";
-        String usuario = "";
-        String password = "";
-        String tipo = "";
+        String nombreApellido = "Pepe";
+        String direccion = "Cll 80, Cra 57";
+        String usuario = "miguel";
+        String password = "98912";
+        String tipo = "BiciUsuario";
         BiciUsuario instance = new BiciUsuario(codigo, nombreApellido, direccion, usuario, password, tipo);
         String nCodigo = "123";
         instance.setDocumento(nCodigo);
@@ -64,12 +64,12 @@ public class BiciUsuarioTest {
     @Test
     public void testGetNombre() {
         System.out.println("getNombre");
-        String codigo = "";
+        String codigo = "13457";
         String nombreApellido = "Pepe";
-        String direccion = "";
-        String usuario = "";
-        String password = "";
-        String tipo = "";
+        String direccion = "Cll 80, Cra 57";
+        String usuario = "miguel";
+        String password = "98912";
+        String tipo = "BiciUsuario";
         BiciUsuario instance = new BiciUsuario(codigo, nombreApellido, direccion, usuario, password, tipo);
         String result = instance.getNombre();
         assertEquals(nombreApellido, result);
@@ -82,12 +82,12 @@ public class BiciUsuarioTest {
     @Test
     public void testSetNombre() {
         System.out.println("setNombre");
-        String codigo = "";
+        String codigo = "13457";
         String nombreApellido = "Pepe";
-        String direccion = "";
-        String usuario = "";
-        String password = "";
-        String tipo = "";
+        String direccion = "Cll 80, Cra 57";
+        String usuario = "miguel";
+        String password = "98912";
+        String tipo = "BiciUsuario";
         BiciUsuario instance = new BiciUsuario(codigo, nombreApellido, direccion, usuario, password, tipo);
         String nNombre = "Carlos";
         instance.setNombre(nNombre);
@@ -101,12 +101,12 @@ public class BiciUsuarioTest {
     @Test
     public void testGetDireccion() {
         System.out.println("getDireccion");
-        String codigo = "";
-        String nombreApellido = "";
+        String codigo = "13457";
+        String nombreApellido = "Pepe";
         String direccion = "Cll 80, Cra 57";
-        String usuario = "";
-        String password = "";
-        String tipo = "";
+        String usuario = "miguel";
+        String password = "98912";
+        String tipo = "BiciUsuario";
         BiciUsuario instance = new BiciUsuario(codigo, nombreApellido, direccion, usuario, password, tipo);
         String result = instance.getDireccion();
         assertEquals(direccion, result);
@@ -120,12 +120,12 @@ public class BiciUsuarioTest {
     @Test
     public void testSetDireccion() {
         System.out.println("setDireccion");
-        String codigo = "";
-        String nombreApellido = "";
+        String codigo = "13457";
+        String nombreApellido = "Pepe";
         String direccion = "Cll 80, Cra 57";
-        String usuario = "";
-        String password = "";
-        String tipo = "";
+        String usuario = "miguel";
+        String password = "98912";
+        String tipo = "BiciUsuario";
         BiciUsuario instance = new BiciUsuario(codigo, nombreApellido, direccion, usuario, password, tipo);
         String nDireccion = "Cll 25, Cra 14";
         instance.setDireccion(nDireccion);
@@ -140,16 +140,16 @@ public class BiciUsuarioTest {
     @Test
     public void testGetBicicletas() {
         System.out.println("getBicicletas");
-        String codigo = "";
-        String nombreApellido = "";
-        String direccion = "";
-        String usuario = "";
-        String password = "";
-        String tipo = "";
+        String codigo = "13457";
+        String nombreApellido = "Pepe";
+        String direccion = "Cll 80, Cra 57";
+        String usuario = "miguel";
+        String password = "98912";
+        String tipo = "BiciUsuario";
         BiciUsuario instance = new BiciUsuario(codigo, nombreApellido, direccion, usuario, password, tipo);
-        String serial = "";
-        String marca = "";
-        String modelo = "";
+        String serial = "8274";
+        String marca = "GW";
+        String modelo = "2013";
         Bicicleta bic = new Bicicleta(serial, marca, modelo);
         instance.add(bic);
         ArrayList<Bicycle> expResult = new ArrayList();
@@ -166,16 +166,16 @@ public class BiciUsuarioTest {
     @Test
     public void testAdd() {
         System.out.println("add");
-        String serial = "";
-        String marca = "";
-        String modelo = "";
+        String serial = "8274";
+        String marca = "GW";
+        String modelo = "2013";
         Bicicleta bic = new Bicicleta(serial, marca, modelo);
-        String codigo = "";
-        String nombreApellido = "";
-        String direccion = "";
-        String usuario = "";
-        String password = "";
-        String tipo = "";
+        String codigo = "13457";
+        String nombreApellido = "Pepe";
+        String direccion = "Cll 80, Cra 57";
+        String usuario = "miguel";
+        String password = "98912";
+        String tipo = "BiciUsuario";
         BiciUsuario instance = new BiciUsuario(codigo, nombreApellido, direccion, usuario, password, tipo);
         instance.add(bic);
         ArrayList<Bicycle> bics = instance.getBicicletas();
@@ -196,12 +196,12 @@ public class BiciUsuarioTest {
     @Test
     public void testSetUsuario() {
         System.out.println("setUsuario");
-        String codigo = "";
-        String nombreApellido = "";
-        String direccion = "";
-        String usuario = "camilo";
-        String password = "";
-        String tipo = "";
+        String codigo = "13457";
+        String nombreApellido = "Pepe";
+        String direccion = "Cll 80, Cra 57";
+        String usuario = "miguel";
+        String password = "98912";
+        String tipo = "BiciUsuario";
         BiciUsuario instance = new BiciUsuario(codigo, nombreApellido, direccion, usuario, password, tipo);
         String nUsuario = "Camilo";
         instance.setUsuario(nUsuario);
@@ -216,12 +216,12 @@ public class BiciUsuarioTest {
     @Test
     public void testGetUsuario() {
         System.out.println("getUsuario");
-        String codigo = "";
-        String nombreApellido = "";
-        String direccion = "";
+        String codigo = "13457";
+        String nombreApellido = "Pepe";
+        String direccion = "Cll 80, Cra 57";
         String usuario = "miguel";
-        String password = "";
-        String tipo = "";
+        String password = "98912";
+        String tipo = "BiciUsuario";
         BiciUsuario instance = new BiciUsuario(codigo, nombreApellido, direccion, usuario, password, tipo);
         String result = instance.getUsuario();
         assertEquals(usuario, result);
@@ -235,12 +235,12 @@ public class BiciUsuarioTest {
     @Test
     public void testSetPassword() {
         System.out.println("setPassword");
-        String codigo = "";
-        String nombreApellido = "";
-        String direccion = "";
-        String usuario = "";
-        String password = "pass";
-        String tipo = "";
+        String codigo = "13457";
+        String nombreApellido = "Pepe";
+        String direccion = "Cll 80, Cra 57";
+        String usuario = "miguel";
+        String password = "98912";
+        String tipo = "BiciUsuario";
         BiciUsuario instance = new BiciUsuario(codigo, nombreApellido, direccion, usuario, password, tipo);
         String nPassword = "newpass";
         instance.setPassword(nPassword);
@@ -255,12 +255,12 @@ public class BiciUsuarioTest {
     @Test
     public void testGetPassword() {
         System.out.println("getPassword");
-        String codigo = "";
-        String nombreApellido = "";
-        String direccion = "";
-        String usuario = "";
-        String password = "pass";
-        String tipo = "";
+        String codigo = "13457";
+        String nombreApellido = "Pepe";
+        String direccion = "Cll 80, Cra 57";
+        String usuario = "miguel";
+        String password = "98912";
+        String tipo = "BiciUsuario";
         BiciUsuario instance = new BiciUsuario(codigo, nombreApellido, direccion, usuario, password, tipo);
         String result = instance.getPassword();
         assertEquals(password, result);
@@ -274,11 +274,11 @@ public class BiciUsuarioTest {
     @Test
     public void testGetTipo() {
         System.out.println("getTipo");
-        String codigo = "";
-        String nombreApellido = "";
-        String direccion = "";
-        String usuario = "";
-        String password = "pass";
+        String codigo = "13457";
+        String nombreApellido = "Pepe";
+        String direccion = "Cll 80, Cra 57";
+        String usuario = "miguel";
+        String password = "98912";
         String tipo = "BiciUsuario";
         BiciUsuario instance = new BiciUsuario(codigo, nombreApellido, direccion, usuario, password, tipo);
         String result = instance.getTipo();
@@ -293,12 +293,12 @@ public class BiciUsuarioTest {
     @Test
     public void testSetTipo() {
         System.out.println("setTipo");
-        String codigo = "";
-        String nombreApellido = "";
-        String direccion = "";
-        String usuario = "";
-        String password = "pass";
-        String tipo = "";
+        String codigo = "13457";
+        String nombreApellido = "Pepe";
+        String direccion = "Cll 80, Cra 57";
+        String usuario = "miguel";
+        String password = "98912";
+        String tipo = "bic";
         BiciUsuario instance = new BiciUsuario(codigo, nombreApellido, direccion, usuario, password, tipo);
         String nTipo = "BiciUsuario";
         instance.setTipo(nTipo);
