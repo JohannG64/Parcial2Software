@@ -18,10 +18,19 @@ public class MoveloAdapter implements Usuario {
     protected String pas;
     protected String typ;
     protected Movelo mov;
-    
 
     public MoveloAdapter() {
         super();
+        this.mov = new Movelo(this.name, this.usu, this.pas, this.typ);
+    }
+    
+
+    public MoveloAdapter(String name, String usu, String pas, String typ) {
+        super();
+        this.name = name;
+        this.usu = usu;
+        this.pas = pas;
+        this.typ = typ;
         this.mov = new Movelo(this.name, this.usu, this.pas, this.typ);
     }
 
