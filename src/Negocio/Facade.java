@@ -22,6 +22,8 @@ public class Facade implements InterfaceProxy{
             Facade.unica = new Facade();
             Facade.usuarios = new ArrayList();
             Facade.bics = new ArrayList();
+            MoveloAdapter m = new MoveloAdapter("movelo","administrador", "123456", "Movelo");
+            Facade.usuarios.add(m);
         }
         return Facade.unica;
     }
