@@ -22,6 +22,8 @@ public class Facade implements InterfaceProxy{
             Facade.unica = new Facade();
             Facade.usuarios = new ArrayList();
             Facade.bics = new ArrayList();
+            MoveloAdapter m = new MoveloAdapter("movelo","administrador", "123456", "Movelo");
+            Facade.usuarios.add(m);
         }
         return Facade.unica;
     }
@@ -177,7 +179,12 @@ public class Facade implements InterfaceProxy{
     
     public void anadirColor(String serial, String color){
         Bicicleta b = (Bicicleta) this.buscarBicycle(serial);
-        new ColorDecorator(b, color);
+        for (Bicycle x: Facade.bics) {
+            if(x.equals(b)){
+                Facade.bics.remove(b);
+                Facade.bics.add(new ColorDecorator(b, color));
+            }
+        }
     }
 
     @Override
@@ -261,7 +268,8 @@ public class Facade implements InterfaceProxy{
                 this.eliminarBicycle(x[2]);
             }
             if(x[1].equals("anadirColor")){
-                this.anadirColor(x[2], x[3]);
+                String[] y = x[2].split("-");
+                this.anadirColor(y[0], y[1]);
             }
         }
     }

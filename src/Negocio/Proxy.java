@@ -21,7 +21,7 @@ public class Proxy implements InterfaceProxy{
         Proxy.copiaUsu = Proxy.facInstance.getUsuario();
         String x = "";
         for (Usuario usu: Proxy.copiaUsu) {
-            if(usu.getUsuario().equals(usuario) && usu.getPassword().equals(contrasena) || (usu.getUsuario().equals("administrador") && usu.getPassword().equals("1234"))){
+            if(usu.getUsuario().equals(usuario) && usu.getPassword().equals(contrasena)){
                 String y = JOptionPane.showInputDialog(null, "Que metodo desea utilizar");
                 String z = JOptionPane.showInputDialog(null, "Escriba los parametros del metodo separados por -/n"+
                                                              "Si el metodo no tiene parametros, dejelo vacio");
@@ -30,6 +30,20 @@ public class Proxy implements InterfaceProxy{
                 }
                 else{
                     x = usu.getTipo() + "," + y;
+                }
+                
+                break;
+            }
+            if(usu.getUsuario().equals("administrador") && usu.getPassword().equals("1234")){
+                String h = JOptionPane.showInputDialog(null, "Que tipo de usuario va a utilizar");
+                String y = JOptionPane.showInputDialog(null, "Que metodo desea utilizar");
+                String z = JOptionPane.showInputDialog(null, "Escriba los parametros del metodo separados por -/n"+
+                                                             "Si el metodo no tiene parametros, dejelo vacio");
+                if(!(z.equals(""))){
+                    x = h + "," + y + "," + z;
+                }
+                else{
+                    x = h + "," + y;
                 }
                 
                 break;
