@@ -69,7 +69,7 @@ public class MoveloAdapter implements Usuario {
     @Override
     public String getDireccion() {
         System.out.println("No aplica");
-        return "";
+        return null;
     }
 
     @Override
@@ -80,7 +80,7 @@ public class MoveloAdapter implements Usuario {
     @Override
     public String getDocumento() {
         System.out.println("No aplica");
-        return "";
+        return null;
     }
 
     @Override
