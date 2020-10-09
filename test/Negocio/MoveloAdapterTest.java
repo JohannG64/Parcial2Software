@@ -80,8 +80,8 @@ public class MoveloAdapterTest {
     @Test
     public void testGetPassword() {
         MoveloAdapter instance = new MoveloAdapter();
-        String expResult = "12345";
-        instance.setPassword("12345");
+        String expResult = "movelo123";
+        instance.setPassword("movelo123");
         String result = instance.getPassword();
         assertEquals(expResult, result);
     }
@@ -92,9 +92,10 @@ public class MoveloAdapterTest {
     @Test
     public void testGetDireccion() {
         MoveloAdapter instance = new MoveloAdapter();
-        String expResult = "";
+        String expResult = "Calle 86 #84-13";
+        instance.setDireccion("Calle 86 #84-13");
         String result = instance.getDireccion();
-        assertEquals(expResult, result);
+        assertEquals(null, result);
     }
 
     /**
@@ -103,9 +104,10 @@ public class MoveloAdapterTest {
     @Test
     public void testSetDireccion() {
         System.out.println("setDireccion");
-        String direccion = "";
+        String direccion = "Calle 86 #84-13";
         MoveloAdapter instance = new MoveloAdapter();
         instance.setDireccion(direccion);
+        assertEquals(instance.getDireccion(), null);
     }
 
     /**
@@ -114,9 +116,10 @@ public class MoveloAdapterTest {
     @Test
     public void testGetDocumento() {
         MoveloAdapter instance = new MoveloAdapter();
-        String expResult = "";
+        String expResult = "12345";
+        instance.setDireccion(expResult);
         String result = instance.getDocumento();
-        assertEquals(expResult, result);
+        assertEquals(null, result);
     }
 
     /**
@@ -125,9 +128,10 @@ public class MoveloAdapterTest {
     @Test
     public void testSetDocumento() {
         System.out.println("setDocumento");
-        String nit = "";
+        String nit = "1234567";
         MoveloAdapter instance = new MoveloAdapter();
         instance.setDocumento(nit);
+        assertEquals(instance.getDocumento(), null);
     }
 
     /**
@@ -136,7 +140,7 @@ public class MoveloAdapterTest {
     @Test
     public void testGetTipo() {
         MoveloAdapter instance = new MoveloAdapter();
-        String expResult = "movelo";
+        String expResult = "Movelo";
         instance.setTipo(expResult);
         System.out.println("tipo" +instance.getTipo());
         assertEquals(expResult, instance.getTipo());
