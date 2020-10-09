@@ -167,7 +167,6 @@ public class FacadeTest {
         String modelo = "2020";
         Facade instance = Facade.crearUnicaInstancia();
         instance.guardarBicycle(serial, marca, modelo);
-        instance.eliminarBicycle(serial);
         assertTrue((instance.buscarBicycle(serial))!=(null));
     }
 

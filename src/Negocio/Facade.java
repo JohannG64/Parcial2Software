@@ -27,18 +27,30 @@ public class Facade implements InterfaceProxy{
     }
     
     public void guardarEmpresa(String nit, String nombre, String direccion, String usuario, String password, String tipo){
+        if(this.buscarUsuario(nit) == null){
         Empresa emp = new Empresa(nit, nombre, direccion, usuario, password, tipo);
         this.usuarios.add(emp);
+        }else{
+            System.out.println("Ya existe");
+        }
     }
     
     public void guardarBiciUsuario(String codigo, String nombreApellido, String direccion, String usuario, String password, String tipo){
+        if(this.buscarUsuario(codigo) == null){
         BiciUsuario a = new BiciUsuario(codigo, nombreApellido, direccion, usuario, password, tipo);
         this.usuarios.add(a);
+        }else{
+            System.out.println("Ya existe");
+        }
     }
     public void guardarBicycle(String serial, String marca, String modelo){
+        if(this.buscarBicycle(modelo) == null){
         Bicycle bicu = new Bicicleta(serial, marca, modelo);
         this.bics.add(bicu);
         System.out.println("Se guardo" + this.bics);
+        }else{
+            System.out.println("Ya existe");
+        }
     }
     public ArrayList<Usuario> getUsuario() {
         return usuarios;
