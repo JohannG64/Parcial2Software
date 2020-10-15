@@ -23,7 +23,11 @@ public class Facade implements InterfaceProxy{
             Facade.usuarios = new ArrayList();
             Facade.bics = new ArrayList();
             MoveloAdapter m = new MoveloAdapter("movelo","administrador", "123456", "Movelo");
+            MoveloUsu u = new MoveloUsu("administrador", "123456", "Movelo");
             Facade.usuarios.add(m);
+            ArrayList<Stakeholder> stk = Proxy.getCopiaUsu();
+            stk.add(u);
+            Proxy.setCopiaUsu(stk);
         }
         return Facade.unica;
     }
@@ -31,6 +35,10 @@ public class Facade implements InterfaceProxy{
     public void guardarEmpresa(String nit, String nombre, String direccion, String usuario, String password, String tipo){
         if(this.buscarUsuario(nit) == null){
         Empresa emp = new Empresa(nit, nombre, direccion, usuario, password, tipo);
+        ArrayList<Stakeholder> stk = Proxy.getCopiaUsu();
+        EmpresaUsu emp2 = new EmpresaUsu(usuario, password, tipo);
+        stk.add(emp2);
+        Proxy.setCopiaUsu(stk);
         this.usuarios.add(emp);
         }else{
             System.out.println("Ya existe");
@@ -40,6 +48,10 @@ public class Facade implements InterfaceProxy{
     public void guardarBiciUsuario(String codigo, String nombreApellido, String direccion, String usuario, String password, String tipo){
         if(this.buscarUsuario(codigo) == null){
         BiciUsuario a = new BiciUsuario(codigo, nombreApellido, direccion, usuario, password, tipo);
+        ArrayList<Stakeholder> stk = Proxy.getCopiaUsu();
+        BiciUsuarioUsu a2 = new BiciUsuarioUsu(usuario, password, tipo);
+        stk.add(a2);
+        Proxy.setCopiaUsu(stk);
         this.usuarios.add(a);
         }else{
             System.out.println("Ya existe");

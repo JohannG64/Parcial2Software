@@ -300,10 +300,10 @@ public class FacadeTest {
         instance.addEmpresa(nit, nit2);
         Empresa e = (Empresa)instance.buscarUsuario(nit);
         Empresa emp = null;
-        ArrayList<Empresa> empresas = e.getEmpresas();
-        for (Empresa em: empresas) {
+        ArrayList<Usuario> empresas = e.getUsuarios();
+        for (Usuario em: empresas) {
             if(em.getDocumento().equals(nit2)){
-                e = em;
+                e = (Empresa) em;
                 break;
             }
         }
@@ -336,11 +336,11 @@ public class FacadeTest {
         instance.guardarBiciUsuario(codigo, nombreApellido, direccion, usuario, password, tipo);
         instance.addBiciUsuario(nit, codigo);
         Empresa e = (Empresa)instance.buscarUsuario(nit);
-        BiciUsuario us = null;
-        ArrayList<BiciUsuario> biciUsuarios = e.getEmpleados();
-        for (BiciUsuario u: biciUsuarios) {
+        Usuario us = null;
+        ArrayList<Usuario> biciUsuarios = e.getUsuarios();
+        for (Usuario u: biciUsuarios) {
             if(u.getDocumento().equals(codigo)){
-                us = u;
+                us = (BiciUsuario) u;
                 break;
             }
         }

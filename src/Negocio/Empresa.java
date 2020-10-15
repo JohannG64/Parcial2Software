@@ -20,15 +20,11 @@ public class Empresa  implements Usuario {
     private String password;
     private String tipo;
     
-    private ArrayList<BiciUsuario> empleados = new ArrayList();
-    private ArrayList<Empresa> empresas = new ArrayList();
+    private ArrayList<Usuario> usuarios = new ArrayList();
 
-    public ArrayList<BiciUsuario> getEmpleados() {
-        return empleados;
-    }
 
-    public ArrayList<Empresa> getEmpresas() {
-        return empresas;
+    public ArrayList<Usuario> getUsuarios() {
+        return usuarios;
     }
     public Empresa() {
     }
@@ -79,18 +75,12 @@ public class Empresa  implements Usuario {
         return  nit + "," + nombre + "," + direccion;
     }
     
-    public void add(BiciUsuario emp){
-        this.empleados.add(emp);
+    public void add(Usuario emp){
+        this.usuarios.add(emp);
     }
-    
-    public void add(Empresa empre){
-        this.empresas.add(empre);
-    }
-
-    public void mostrarEmp() {
-        for (BiciUsuario e: this.empleados) {
+    public void mostrarUsu() {
+        for (Usuario e: this.usuarios) {
             System.out.println(e.toString()+"\n");
-            System.out.println(e.getBicicletas());
         }
     }
 
@@ -123,6 +113,8 @@ public class Empresa  implements Usuario {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
+
+
 
     
 }
