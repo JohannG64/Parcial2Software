@@ -11,33 +11,29 @@ import java.util.ArrayList;
  *
  * @author JohannG
  */
-public interface Usuario {
+public abstract class Usuario {
 
-    public String getDocumento();
+    abstract public String getDocumento();
 
-    public void setDocumento(String nit);
+    abstract public void setDocumento(String nit);
 
-    public String getNombre();
+    abstract public String getNombre();
 
-    public void setNombre(String nombre);
+    abstract public void setNombre(String nombre);
 
-    public String getDireccion();
+    abstract public String getDireccion();
 
-    public void setDireccion(String direccion);
-    
-    public void setUsuario(String usuario);
-    
-    public String getUsuario();
-    
-    public void setPassword(String password);
-    
-    public String getPassword();
+    abstract public void setDireccion(String direccion);
 
-    public String getTipo();
-    
-    public void setTipo(String tipo);
+    abstract public void setUsuario(String usuario);
 
+    abstract public String getUsuario();
 
+    abstract public void setPassword(String password);
 
+    abstract public String getPassword();
 
+    abstract public String getTipo();
+
+    abstract public void setTipo(String tipo);
 }

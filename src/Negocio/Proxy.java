@@ -15,6 +15,16 @@ import javax.swing.JOptionPane;
 public class Proxy implements InterfaceProxy{
     private static Facade facInstance;
     private static ArrayList<Stakeholder> copiaUsu;
+    private static Proxy unica = null;
+    
+    public static Proxy crearUnicaInstancia(){
+        if(Proxy.unica == null){
+            Proxy.unica = new Proxy();
+            Proxy.facInstance = Facade.crearUnicaInstancia();
+            Proxy.copiaUsu = new ArrayList();
+        }
+        return Proxy.unica;
+    }
 
     public Proxy() {
         Proxy.copiaUsu = new ArrayList();

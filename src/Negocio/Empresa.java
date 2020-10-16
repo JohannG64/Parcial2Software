@@ -12,7 +12,7 @@ import java.util.ArrayList;
  *
  * @author JohannG
  */
-public class Empresa  implements Usuario {
+public class Empresa  extends Usuario {
     private String nit;
     private String nombre;
     private String direccion;
