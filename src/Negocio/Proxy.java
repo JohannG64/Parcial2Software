@@ -14,14 +14,36 @@ import javax.swing.JOptionPane;
  */
 public class Proxy implements InterfaceProxy{
     private static Facade facInstance;
-    private static ArrayList<Usuario> copiaUsu;
+    private static ArrayList<Stakeholder> copiaUsu;
+    private static Proxy unica = null;
+    
+    public static Proxy crearUnicaInstancia(){
+        if(Proxy.unica == null){
+            Proxy.unica = new Proxy();
+            Proxy.facInstance = Facade.crearUnicaInstancia();
+            Proxy.copiaUsu = new ArrayList();
+        }
+        return Proxy.unica;
+    }
+
+    public Proxy() {
+        Proxy.copiaUsu = new ArrayList();
+    }
+
+    public static ArrayList<Stakeholder> getCopiaUsu() {
+        return copiaUsu;
+    }
+
+    public static void setCopiaUsu(ArrayList<Stakeholder> copiaUsu) {
+        Proxy.copiaUsu = copiaUsu;
+    }
+    
     @Override
     public void Login(String usuario, String contrasena) {
         Proxy.facInstance = Facade.crearUnicaInstancia();
-        Proxy.copiaUsu = Proxy.facInstance.getUsuario();
         String x = "";
-        for (Usuario usu: Proxy.copiaUsu) {
-            if(usu.getUsuario().equals(usuario) && usu.getPassword().equals(contrasena)){
+        for (Stakeholder usu: Proxy.copiaUsu) {
+            if(usu.getEmail().equals(usuario) && usu.getPassword().equals(contrasena)){
                 String y = JOptionPane.showInputDialog(null, "Que metodo desea utilizar");
                 String z = JOptionPane.showInputDialog(null, "Escriba los parametros del metodo separados por -/n"+
                                                              "Si el metodo no tiene parametros, dejelo vacio");
@@ -34,7 +56,7 @@ public class Proxy implements InterfaceProxy{
                 
                 break;
             }
-            if(usu.getUsuario().equals("administrador") && usu.getPassword().equals("1234")){
+            if(usu.getEmail().equals("administrador") && usu.getPassword().equals("1234")){
                 String h = JOptionPane.showInputDialog(null, "Que tipo de usuario va a utilizar");
                 String y = JOptionPane.showInputDialog(null, "Que metodo desea utilizar");
                 String z = JOptionPane.showInputDialog(null, "Escriba los parametros del metodo separados por -/n"+

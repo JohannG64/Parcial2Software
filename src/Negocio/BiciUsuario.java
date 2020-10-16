@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author JohannG
  */
-public class BiciUsuario implements Usuario{
+public class BiciUsuario extends Usuario{
     private String codigo;
     private String nombreApellido;
     private String direccion;
